@@ -1,0 +1,10 @@
+﻿#My First comment
+write-host "What is your favorite system?"
+Write-Host "1. NES"
+Write-Host "2. SNES"
+Write-Host "3. N64"
+Write-Host "4. Gamecube"
+Write-Host "5. Wii"
+Write-Host "6. Wii U"
+Write-Host "7. Switch"
+$Favsystem = Read-Host -Prompt "What is your favorite Nintendo Gaming system?"
