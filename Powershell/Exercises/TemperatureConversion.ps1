@@ -1,5 +1,5 @@
-﻿<#
-[string]$GetTemperatureUnit = Read-Host "What is the current temperature unit do you want to convert? Press F for Fahrenheit to Celsius. Press C for Celsius to Fahrenheit."
+﻿
+[string]$GetTemperatureUnit = Read-Host "What is the current temperature unit do you want to convert? Enter F for Fahrenheit to Celsius. Enter C for Celsius to Fahrenheit."
 [double]$GetTemperature = Read-Host "What is the temperature?"
 $TemperatureUnit = $GetTemperatureUnit
 $Temperature = $GetTemperature
@@ -24,7 +24,7 @@ function FahrenheitToCelsius{
 function CelsiusToFahrenheit{
     [double]$global:ConvertedTemperature = (($Temperature*1.8)+32)
 }
-#>
+
 
 function GetTemperature{
     [CmdletBinding()]
