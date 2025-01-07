@@ -1,14 +1,17 @@
-﻿<#
-1.) Create a folder TestingPurpose and 3 Subfolders inside it SubFolder1, SubFolder2
+﻿#######################
+#####Jamal Harrell#####
+#######################
+
+<#
+1.) Create a folder TestingPurpose and 2 Subfolders inside it SubFolder1, SubFolder2
 
 -------------------------------------------------------------------------------------
-
-
-New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\ -ItemType directory
-New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\SubFolder1 -ItemType directory
-New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\SubFolder2 -ItemType directory
-New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\SubFolder3 -ItemType directory
 #>
+
+New-Item -Path C:\Projects\Powershell\Exercises\TestingPurpose\ -ItemType directory
+New-Item -Path C:\Projects\Powershell\Exercises\TestingPurpose\SubFolder1 -ItemType directory
+New-Item -Path C:\Projects\Powershell\Exercises\TestingPurpose\SubFolder2 -ItemType directory
+
 
 <#
 2.) Create some test files inside these folders:
@@ -21,7 +24,7 @@ Needless to say that you have to use logic for creating these files. Not one by 
 
 --------------------------------------------------------------------------------------
 
-
+#>
 
 $NameA = "TypeATest"
 $NameB = "TypeBTest"
@@ -29,7 +32,7 @@ $FileType = ".txt"
 $count = 0
 
 Do { 
-    $count++; New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\SubFolder1\ -Name  $NameA$count$FileType
+    $count++; New-Item -Path C:\Projects\Powershell\Exercises\TestingPurpose\SubFolder1\ -Name  $NameA$count$FileType
     }
     While (
         $count -lt 50
@@ -37,26 +40,20 @@ Do {
 
 
 Do {
-    $count++; New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\SubFolder2\ -Name $NameB$count$FileType
+    $count++; New-Item -Path C:\Projects\Powershell\Exercises\TestingPurpose\SubFolder2\ -Name $NameB$count$FileType
     }
     While (
         $count -lt 100
     )
-#>
-$NameA = "TypeATest"
-$NameB = "TypeBTest"
-$FileType = ".txt"
-$TextA = 1..50 | ForEach-Object{
-    New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\SubFolder1\ -Name $NameA$TextA$FileType
-    }
 
-$TextB = 51..100 | ForEach-Object{
-    New-Item -Path C:\Scripts\Powershell\Exercises\TestingPurpose\SubFolder2\ -Name $NameB$TextB$FileType
-}
+
+
 <#
 3.) Move all files which have an odd number in its name to SubFolder2
 
 -------------------------------------------------------------------------------------
 
-#>
 
+
+Get-ChildItem C:\Projects\Powershell\Exercises\TestingPurpose\SubFolder1\ | Where-Object { $_.Name -like '*2*' } #<{Move-Item -Destination C:\Projects\Powershell\Exercises\TestingPurpose\SubFolder2}#>
+#>
